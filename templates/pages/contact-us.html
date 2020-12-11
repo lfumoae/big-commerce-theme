@@ -1,0 +1,51 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    <script src="https://cdn.jsdelivr.net/gh/hawksearch/vue-hawksearch@bundle-build/dist/vhbundle.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hawksearch/vue-hawksearch@bundle-build/dist/vue-hawksearch.css" />
+    <div data-component="vue-app"
+         data-hawksearch-config='{"clientGuid":"f51060e1c38446f0bacdf283390c37e8","apiUrl":"https://searchapi-dev.hawksearch.net/","searchUrl":"/api/v2/search","autocompleteUrl":"/api/autocomplete"}'>
+
+        <div class="hawk">
+
+            <div class="hawk__header">
+                <search-box></search-box>
+            </div>
+
+            <div class="hawk__body">
+                <facet-list></facet-list>
+
+                <results></results>
+            </div>
+
+        </div>
+    </div>
+    {{#unless theme_settings.hide_contact_us_page_heading }}
+        <h1 class="page-heading">{{page.title}}</h1>
+    {{/unless}}
+
+    {{#if page.sub_pages}}
+        <nav class="navBar navBar--sub">
+            <ul class="navBar-section account-navigation">
+                {{#each page.sub_pages}}
+                    <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                {{/each}}
+            </ul>
+        </nav>
+    {{/if}}
+
+    <div id="contact-us-page" class="page-content page-content--centered">
+        {{#if forms.contact.success}}
+            <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
+        {{else}}
+            <p>{{{page.content}}}</p>
+            {{> components/page/contact-us-form}}
+        {{/if}}
+
+    </div>
+
+</main>
+
+{{/partial}}
+
+{{> layout/base}}
