@@ -26,6 +26,26 @@ blog:
     {{/each}}
 
 <div class="main full">
+
+    <div data-hawksearch-component="results"
+         data-hawksearch-sdk="vue"
+         data-hawksearch-client-guid="f51060e1c38446f0bacdf283390c37e8"
+         data-hawksearch-search-api="https://searchapi-dev.hawksearch.net/"
+         data-hawksearch-index-name="">
+
+        <div class="hawk">
+            <div class="hawk__header">
+                <search-box></search-box>
+            </div>
+
+            <div class="hawk__body">
+                <facet-list></facet-list>
+
+                <results></results>
+            </div>
+        </div>
+    </div>
+
     {{#if products.featured}}
         {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
     {{/if}}

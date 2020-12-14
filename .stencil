@@ -1,0 +1,11 @@
+{
+  "customLayouts": {
+    "brand": {},
+    "category": {},
+    "page": {},
+    "product": {}
+  },
+  "normalStoreUrl": "https://hawksearchsof.mybigcommerce.com",
+  "accessToken": "elzqs8odw14hohgq5i5qezc6rj5a77n",
+  "port": "8999"
+}

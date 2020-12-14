@@ -54,6 +54,8 @@ const pageClasses = {
 
 const customClasses = {};
 
+import hawsearchInitialize from './hawksearch/vue';
+
 /**
  * This function gets added to the global window and then called
  * on page load with the current template loaded and JS Context passed in
@@ -92,6 +94,8 @@ window.stencilBootstrap = function stencilBootstrap(pageType, contextJSON = null
                         imported.default.load(context);
                     });
                 });
+
+                hawsearchInitialize();
             });
         },
     };
