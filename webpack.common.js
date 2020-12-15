@@ -4,6 +4,8 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
     path = require('path'),
     webpack = require('webpack');
 
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
 // Common configuration, with extensions in webpack.dev.js and webpack.prod.js.
 module.exports = {
     bail: true,
@@ -43,6 +45,10 @@ module.exports = {
                     options: '$',
                 }],
             },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            }
         ],
     },
     output: {
@@ -70,6 +76,7 @@ module.exports = {
             analyzerMode: 'static',
             openAnalyzer: false,
         }),
+        new VueLoaderPlugin(),
     ],
     resolve: {
         alias: {
