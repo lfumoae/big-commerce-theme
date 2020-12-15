@@ -1,13 +1,9 @@
 import HawksearchVue from '@hawksearch/vue';
 import { ResultListing } from '@hawksearch/vue';
 import ResultItem from './components/ResultItem.vue';
-import hawkConfig from './hawkConfig.json';
+import defaultConfig from '../hawksearch.config.json';
 
 ResultListing.components.ResultItem = ResultItem;
-
-//Handlebars.registerHelper('vue-js', function (options) {
-//    return options.fn();
-//});
 
 export default function () {
     var components = document.querySelectorAll('[data-hawksearch-component="results"], [data-hawksearch-component="search-box"], [data-hawksearch-component="recommendations"], [data-hawksearch-component="page-content"]');
@@ -15,22 +11,13 @@ export default function () {
 
     if (components) {
         components.forEach(component => {
-            //const config = {
-            //    clientGuid: component.getAttribute('data-hawksearch-client-guid'),
-            //    apiUrl: component.getAttribute('data-hawksearch-search-api'),
-            //    indexName: component.getAttribute('data-hawksearch-index-name'),
-            //    searchConfig: {
-            //        scrollUpOnRefresh: false
-            //    }
-            //};
             var dataLayer = component.getAttribute('data-hawksearch-data-layer') || ('index_' + component.getAttribute('data-hawksearch-index-name'));
-
-            var config = hawkConfig;
+            var config = defaultConfig;
             config.clientGuid = component.getAttribute('data-hawksearch-client-guid');
             config.indexName = component.getAttribute('data-hawksearch-index-name');
-            config.apiUrl = component.getAttribute('data-hawksearch-search-api') || hawkConfig.apiUrl;
-            config.dashboardUrl = component.getAttribute('data-hawksearch-dashboard-url') || hawkConfig.dashboardUrl;
-            config.websiteUrl = component.getAttribute('data-hawksearch-website-url') || hawkConfig.websiteUrl;
+            config.apiUrl = component.getAttribute('data-hawksearch-search-api') || defaultConfig.apiUrl;
+            config.dashboardUrl = component.getAttribute('data-hawksearch-dashboard-url') || defaultConfig.dashboardUrl;
+            config.websiteUrl = component.getAttribute('data-hawksearch-website-url') || defaultConfig.websiteUrl;
 
             if (dataLayer) {
                 if (dataLayers.hasOwnProperty(dataLayer)) {
