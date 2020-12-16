@@ -6,15 +6,15 @@ import defaultConfig from '../hawksearch.config.json';
 ResultListing.components.ResultItem = ResultItem;
 
 export default function () {
-    var components = document.querySelectorAll('[data-hawksearch-component="results"], [data-hawksearch-component="search-box"], [data-hawksearch-component="recommendations"], [data-hawksearch-component="page-content"]');
+    var components = document.querySelectorAll('[data-hawksearch-component="results"], [data-hawksearch-component="search-box"]');
     var dataLayers = {};
 
     if (components) {
         components.forEach(component => {
             var dataLayer = component.getAttribute('data-hawksearch-data-layer') || ('index_' + component.getAttribute('data-hawksearch-index-name'));
             var config = defaultConfig;
-            config.clientGuid = component.getAttribute('data-hawksearch-client-guid');
-            config.indexName = component.getAttribute('data-hawksearch-index-name');
+            config.clientGuid = component.getAttribute('data-hawksearch-client-guid') || defaultConfig.clientGuid;
+            config.indexName = component.getAttribute('data-hawksearch-index-name') || defaultConfig.indexName;
             config.apiUrl = component.getAttribute('data-hawksearch-search-api') || defaultConfig.apiUrl;
             config.dashboardUrl = component.getAttribute('data-hawksearch-dashboard-url') || defaultConfig.dashboardUrl;
             config.websiteUrl = component.getAttribute('data-hawksearch-website-url') || defaultConfig.websiteUrl;

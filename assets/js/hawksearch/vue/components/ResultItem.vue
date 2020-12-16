@@ -3,7 +3,7 @@
         <result-image :imagePath="getField('image')"></result-image>
 
         <div class="hawk-results__item-name">
-            <span>Test: {{ getField('itemname') }}</span>
+            <span>{{ getField('itemname') }}</span>
         </div>
     </div>
 </template>

@@ -1,12 +1,7 @@
 {
     "apiUrl": "https://searchapi-dev.hawksearch.net/",
     "dashboardUrl": "https://dev.hawksearch.net/",
-    "websiteUrl": "http://demo.hawksearch.net/",
-    "facetConfig": {
-        "brand": "single",
-        "color-property": "single",
-        "department_nest": "single"
-    },
+    "clientGuid":  "f51060e1c38446f0bacdf283390c37e8",
     "searchConfig": {
         "scrollUpOnRefresh": false
     }

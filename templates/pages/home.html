@@ -27,10 +27,7 @@ blog:
 
 <div class="main full">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hawksearch/vue-hawksearch@bundle-build/dist/vue-hawksearch.css" />
-
-    {{> components/hawksearch/search-box }}
-    {{> components/hawksearch/results }}
+    {{> components/hawksearch/search-box searchpage="/search.php"}}
 
     {{#if products.featured}}
         {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
@@ -49,3 +46,6 @@ blog:
 </div>
 {{/partial}}
 {{> layout/base}}
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hawksearch/vue-hawksearch@bundle-build/dist/vue-hawksearch.css" />
+
